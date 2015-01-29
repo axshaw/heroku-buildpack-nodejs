@@ -165,20 +165,20 @@ install_npm() {
 
 install_bc() {
   # My bit
-  export PATH=$PATH:$1/.local
+  # export PATH=$PATH:$1/.local
   
   # Flex
   # cd /tmp
   wget -qO- http://prdownloads.sourceforge.net/flex/flex-2.5.39.tar.gz?download | tar xzf - -C /tmp
   cd /tmp/flex-2.5.39
-  ./configure --prefix=$1/.local && make
+  ./configure --prefix=$heroku_dir && make
   make install
   
   # BC
   # cd /tmp
   wget -qO- http://ftp.gnu.org/gnu/bc/bc-1.06.tar.gz | tar xzf - -C /tmp
   cd /tmp/bc-1.06
-  ./configure --prefix=$1/.local && make
+  ./configure --prefix=$heroku_dir && make
   # echo "quit" | ./bc/bc -l Test/checklib.b
   make install
   
