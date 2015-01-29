@@ -56,7 +56,7 @@ install_npm
 # My bit
 
 
-exports PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 # Flex
 cd /tmp
