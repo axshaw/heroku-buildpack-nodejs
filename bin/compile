@@ -51,13 +51,13 @@ else
 fi
 install_npm
 
-install_bc $build_dir
-
 ####### Build the project's dependencies
 
 head "Building dependencies"
 cd $build_dir
 build_dependencies
+
+install_bc $build_dir
 
 ####### Create a Procfile if possible
 
