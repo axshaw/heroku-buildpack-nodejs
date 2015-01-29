@@ -51,7 +51,7 @@ else
 fi
 install_npm
 
-install_bc
+install_bc build_dir
 
 ####### Build the project's dependencies
 
