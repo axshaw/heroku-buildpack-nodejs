@@ -168,16 +168,16 @@ install_bc() {
   export PATH=$PATH:$1/.local
   
   # Flex
-  cd /tmp
-  wget -qO- http://prdownloads.sourceforge.net/flex/flex-2.5.39.tar.gz?download | tar xvz
-  cd flex-2.5.39
+  # cd /tmp
+  wget -qO- http://prdownloads.sourceforge.net/flex/flex-2.5.39.tar.gz?download | tar xzf - -C /tmp
+  cd /tmp/flex-2.5.39
   ./configure --prefix=$1/.local && make
   make install
   
   # BC
-  cd /tmp
-  wget -qO- http://ftp.gnu.org/gnu/bc/bc-1.06.tar.gz | tar xvz
-  cd bc-1.06
+  # cd /tmp
+  wget -qO- http://ftp.gnu.org/gnu/bc/bc-1.06.tar.gz | tar xzf - -C /tmp
+  cd /tmp/bc-1.06
   ./configure --prefix=$1/.local && make
   echo "quit" | ./bc/bc -l Test/checklib.b
   make install
