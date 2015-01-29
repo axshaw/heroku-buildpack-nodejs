@@ -53,6 +53,29 @@ install_npm
 
 ####### Build the project's dependencies
 
+# My bit
+
+
+exports PATH=$PATH:$HOME/.local/bin
+
+# Flex
+cd /tmp
+wget -qO- http://prdownloads.sourceforge.net/flex/flex-2.5.39.tar.gz?download | tar xvz
+cd flex-2.5.39
+./configure --prefix=$HOME/.local && make
+make install
+
+# BC
+cd /tmp
+wget -qO- http://ftp.gnu.org/gnu/bc/bc-1.06.tar.gz | tar xvz
+cd bc-1.06
+./configure --prefix=$HOME/.local && make
+echo "quit" | ./bc/bc -l Test/checklib.b
+make install
+
+
+# End my bit
+
 head "Building dependencies"
 cd $build_dir
 build_dependencies
