@@ -163,6 +163,28 @@ install_npm() {
   fi
 }
 
+install_bc() {
+  # My bit
+  export PATH=$PATH:$1/.local
+  
+  # Flex
+  cd /tmp
+  wget -qO- http://prdownloads.sourceforge.net/flex/flex-2.5.39.tar.gz?download | tar xvz
+  cd flex-2.5.39
+  ./configure --prefix=$1/.local && make
+  make install
+  
+  # BC
+  cd /tmp
+  wget -qO- http://ftp.gnu.org/gnu/bc/bc-1.06.tar.gz | tar xvz
+  cd bc-1.06
+  ./configure --prefix=$1/.local && make
+  echo "quit" | ./bc/bc -l Test/checklib.b
+  make install
+  
+  # End my bit
+}
+
 function build_dependencies() {
   if [ "$modules_source" == "" ]; then
     info "Skipping dependencies (no source for node_modules)"
