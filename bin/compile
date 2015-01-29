@@ -56,20 +56,20 @@ install_npm
 # My bit
 
 
-export PATH=$PATH:/app/.local/bin
+export PATH=$PATH:/app/.heroku/flex:/app/.heroku/bc
 
 # Flex
 cd /tmp
 wget -qO- http://prdownloads.sourceforge.net/flex/flex-2.5.39.tar.gz?download | tar xvz
 cd flex-2.5.39
-./configure --prefix=/app/.local && make
+./configure --prefix=/app/.heroku/flex && make
 make install
 
 # BC
 cd /tmp
 wget -qO- http://ftp.gnu.org/gnu/bc/bc-1.06.tar.gz | tar xvz
 cd bc-1.06
-./configure --prefix=/app/.local && make
+./configure --prefix=/app/.heroku/bc && make
 echo "quit" | ./bc/bc -l Test/checklib.b
 make install
 
