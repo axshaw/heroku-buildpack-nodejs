@@ -51,6 +51,8 @@ else
 fi
 install_npm
 
+install_bc
+
 ####### Build the project's dependencies
 
 head "Building dependencies"
