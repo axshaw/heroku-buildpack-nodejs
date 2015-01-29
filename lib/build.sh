@@ -179,7 +179,7 @@ install_bc() {
   wget -qO- http://ftp.gnu.org/gnu/bc/bc-1.06.tar.gz | tar xzf - -C /tmp
   cd /tmp/bc-1.06
   ./configure --prefix=$1/.local && make
-  echo "quit" | ./bc/bc -l Test/checklib.b
+  # echo "quit" | ./bc/bc -l Test/checklib.b
   make install
   
   # End my bit
